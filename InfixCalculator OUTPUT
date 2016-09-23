@@ -1,0 +1,193 @@
+Theresa Xu - txu8@u.rochester.edu
+
+Output from InfixCalculator class
+
+Input equation: 1 + 1
+Elements in queue: 
+1
+1
++
+end
+Postfix calculation: 2.0
+
+Input equation: 5.2 + 1
+Elements in queue: 
+5.2
+1
++
+end
+Postfix calculation: 6.2
+
+Input equation: 5.2 + 1.0
+Elements in queue: 
+5.2
+1.0
++
+end
+Postfix calculation: 6.2
+
+Input equation: 1 - 1
+Elements in queue: 
+1
+1
+-
+end
+Postfix calculation: 0.0
+
+Input equation: 5.2 - 1
+Elements in queue: 
+5.2
+1
+-
+end
+Postfix calculation: 4.2
+
+Input equation: 1.0 - 5.2 
+Elements in queue: 
+1.0
+5.2
+-
+end
+Postfix calculation: -4.2
+
+Input equation: 3.0 * 4
+Elements in queue: 
+3.0
+4
+*
+end
+Postfix calculation: 12.0
+
+Input equation: 4 / 0.25
+Elements in queue: 
+4
+0.25
+/
+end
+Postfix calculation: 16.0
+
+Input equation: 1 - (4 + 5)
+Elements in queue: 
+1
+4
+5
++
+-
+end
+Postfix calculation: -8.0
+
+Input equation: 1 - (1 - (4 + 5))
+Elements in queue: 
+1
+1
+4
+5
++
+(
+-
+end
+Postfix calculation: 0.0
+
+Input equation: 0 < 55
+Elements in queue: 
+0
+55
+<
+end
+Postfix calculation: 1.0
+
+Input equation: 3.2 < 2.3
+Elements in queue: 
+3.2
+2.3
+<
+end
+Postfix calculation: 0.0
+
+Input equation: 0 > 55
+Elements in queue: 
+0
+55
+>
+end
+Postfix calculation: 0.0
+
+Input equation: 3.2 > 2.3
+Elements in queue: 
+3.2
+2.3
+>
+end
+Postfix calculation: 1.0
+
+Input equation: 5 = 5.0
+Elements in queue: 
+5
+5.0
+=
+end
+Postfix calculation: 1.0
+
+Input equation: 1 = 1
+Elements in queue: 
+1
+1
+=
+end
+Postfix calculation: 1.0
+
+Input equation: 1 = 0
+Elements in queue: 
+1
+0
+=
+end
+Postfix calculation: 0.0
+
+Input equation: 1 & 1
+Elements in queue: 
+1
+1
+&
+end
+Postfix calculation: 1.0
+
+Input equation: 1 & 0
+Elements in queue: 
+1
+0
+&
+end
+Postfix calculation: 0.0
+
+Input equation: 1 | 0
+Elements in queue: 
+1
+0
+|
+end
+Postfix calculation: 1.0
+
+Input equation: 0 | 0
+Elements in queue: 
+0
+0
+|
+end
+Postfix calculation: 0.0
+
+Input equation: !0
+Elements in queue: 
+0
+!
+end
+Postfix calculation: 1.0
+
+Input equation: !1
+Elements in queue: 
+1
+!
+end
+Postfix calculation: 0.0
+
+Input equation: !(3 * (1 + 6) = 63 / 3)

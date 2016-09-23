@@ -1,0 +1,54 @@
+Theresa Xu - txu8@u.rochester.edu
+
+In order to have a infix calculator I made sure that my classes related to stacks, queues, and linkedlists were also within 
+the package for my project. Within my project02, I created the InfixCalculator class which contained all the methods needed
+for shunting-yard algorithm, postfix evaluation and computations. For extra credit, I also implemented "^" and "%".
+The first method I created was isOperator since given a string I needed to determine whether or not it was an operator or 
+an operand, which would determine whether it would be queued or put into a stack when evaluating from infix to postfix.
+
+I created a try catch and a scanner so that it would read the file I inputed and take each line within the file and use 
+that for the calculator. With each line that I read, I stored that as a string array and split it such that it would be split by
+spaces. However, upon doing this I realized I would come across the issue of decimals such as 5.2 so I needed to create a method
+so that 5.2 would be considered as one index rather than three separate indexes. I originally did so by creating my concat method which I 
+also tested in a separate ConcatMethodTest class. It originally utilized a stringJoiner so that if a "." was detected it would use combine 
+the individual string before the ".", the decimal, and the string after the decimal. By doing so, the string was combined into just
+one string and be considered as it's own index. Once I finished combining the string, I needed to also join the other indexes so I 
+did so by creating a new String array and adding the rest of the old string into the same array with the new concatenated string.
+However, I realized that it wouldn't work for decimals with two digits after the decimal such as (5.22) and it wouldn't work for
+two digit numbers such as 55. Therefore, I instead created a char array from the string so that I could concatenate the characters
+instead, which ended up working. I then made it return a String array so that it could be used for infixConvert.
+
+The infixConvert method is the method that takes in the concatenated string array and creates the queue and stack given the array.
+I used the logic so that if the string element in the array wasn't an operator it would immediately be added to the queue. If it 
+was an operator and the stack was empty it would be added to the stack. If the element were a "(" it would be added to the stack too
+and if it was a ")" element, it would pop all of the elements in the stack and add them into the queue up until the other paranthesis 
+is identified. Otherwise, if it isn't a paranthesis the element would need to acquire it's precedence in order to determine whether 
+or not it is queued or stacked. The precedence method I created assigned different precedence to each operator identified, starting
+from 1 as the lowest precedence and 6 as the highest. In infixConvert, if the element on top has lower precedence than the current
+element you're looking at then you simply push the element that you're looking at. However, if the element on top has higher precedence
+than the one you're looking at then you pop all the elements until you reach one of lower precedence, which requires a while loop.
+At the end, I pop everything and queue it. I then stored the queue from infixConvert so that it could be used in postfixEval.
+
+In postfixEval, I created a new stack and popped two operands if an operator that required two operands was used, such as * and +.
+However, for operators like !, only one operand was needed. Because of this, I created two separate compute methods, one that 
+requires two operands in the parameters and one that only required one operand in the parameter. Then within the postfixEval
+method I called the compute method which did the actual mathematical computations. The postfixEval returned a String though so 
+I had to convert the double from compute to string before I could return it.
+
+As explained previously, the first compute method takes in the operator and the two operands affected by the operator. The math is
+self explanatory as to how I calculated it. Since the input were strings, I had to use double parse first before I could calculate though.
+For the notCompute method, it takes in only one operator and one operand and performs similarly. 
+
+Within my main class, I created infixCalculator test as a new infixCalculator. I then imported a scanner import the file and to read each 
+line which would then be saved as a string and converted into a string array for future use. I then called all the methods that were necessary. 
+I did this all within a while loop so that each equation would be calculated. I also did this within a try catch so that if the file wasn't
+found it would report an error. I also imported printwriter so that my output from each line's calculation could be saved into a file.  
+The only problem I had was computing the last two equations though. 
+
+Steps: 
+extract Project02 and name it Project02extract
+Open command prompt and find the directory
+cd Project02extract\Project02
+open Project02 directory
+type Java InfixCalculator infix_expr_short.txt my_eval.txt
+Open my_eval.txt file in Project02 for output file 
